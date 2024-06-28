@@ -1,3 +1,6 @@
+# Time complexity : 4 ** (r * c)
+# Memory complexity : r * c
+
 def dfs(grid, r, c, visit):
     ROW = len(grid)
     COL = len(grid[0])
