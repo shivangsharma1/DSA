@@ -28,3 +28,20 @@ def memoization(r, c, row, col, cache):
     return cache[(r,c)]
 
 print("Memoization: ",memoization(0, 0, 4, 4, {}))
+
+#=====================================================================================
+#dynamic programming soln
+
+def count_paths(m, n):
+    row = [0] * n
+
+    for _ in range(m-1, -1, -1):
+        newrow = [0] * n
+        newrow[-1] = 1
+        for col in range(n-2, -1, -1):
+            newrow[col] = newrow[col+1] + row[col]
+        row = newrow
+
+    return row[0]
+
+print("DP: ",count_paths(4, 4))
