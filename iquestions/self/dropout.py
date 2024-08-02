@@ -4,6 +4,7 @@ import numpy as np
 
 class Dropout(nn.Module):
     def __init__(self, ratio=0.2):
+        super().__init__()
         self.ratio = ratio
 
     def forward(self, x):
@@ -19,4 +20,4 @@ if __name__ == '__main__':
     print(array)
 
     drop = Dropout()
-    print(drop.forward(array))
+    print(drop(array))
