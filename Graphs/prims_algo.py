@@ -27,7 +27,7 @@ def min_spanningtree(edges, n):
         visited.add(node)
 
         for w, neigh in adj[node]:
-            if node not in visited:
+            if neigh not in visited:
                 heapq.heappush(minheap, (w, node, neigh))
 
     return mst
