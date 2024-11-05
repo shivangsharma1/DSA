@@ -32,11 +32,12 @@ class CausalAttention(nn.Module):
 
 
 if __name__ == "__main__":
-    d_in, d_out = 5, 5
-    x = torch.rand(d_in, d_out)
-    x_in = torch.stack((x, x), dim=0)
+    d_in, context_len ,d_out = 5, 10, 100
+    # x = torch.rand(d_in, d_out)
+    # x_in = torch.stack((x, x), dim=0)
+    x_in = torch.rand(2, context_len, d_in)
     print(x_in.shape)
 
-    causal = CausalAttention(d_in, d_out, x_in.shape[1])
+    causal = CausalAttention(d_in, d_out, context_len)
     print(causal(x_in))
 
